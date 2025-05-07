@@ -1,0 +1,76 @@
+{
+    "EnterFarmingSection": {
+        "doc": "从主页面进入战斗",
+        "recognition": "TemplateMatch",
+        "template": "战斗.png",
+        "action": "Click",
+        "target": true,
+        "post_wait_freezes": 2000,
+        "next": [
+            "SelectStage"
+        ]
+    },
+    "SelectStage": {
+        "doc": "点击作战任务",
+        "recognition": "OCR",
+        "expected": "任務",
+        "action": "Click",
+        "target": true,
+        "post_wait_freezes": 1000,
+        "next": [
+            "ScrollStageList"
+        ]
+    },
+    "ScrollStageList": {
+        "doc": "滑动选择战役进度条/关卡列表",
+        "action": "Swipe",
+        "begin": [
+            258,
+            147,
+            1,
+            1
+        ],
+        "end": [
+            256,
+            628,
+            1,
+            1
+        ],
+        "duration": 200,
+        "post_wait_freezes": 1000,
+        "next": [
+            "CheckTargetStageVisibility"
+        ]
+    },
+    "CheckTargetStageVisibility": {
+        "doc": "检查第零章节",
+        "recognition": "OCR",
+        "expected": "第零",
+        "roi": [
+            171,
+            88,
+            142,
+            630
+        ],
+        "action": "Click",
+        "target": true,
+        "post_wait_freezes": 500,
+        "next": [
+            "Select_0_2"
+        ]
+    },
+    "Select_0_2": {
+        "doc": "检查0_2",
+        "recognition": "OCR",
+        "expected": "黑色",
+        "action": "Click",
+        "target": true,
+        "post_wait_freezes": 500,
+        "next": [
+            "EnterCombat"
+        ]
+    },
+    "EnterCombat": {
+        "next": []
+    }
+}

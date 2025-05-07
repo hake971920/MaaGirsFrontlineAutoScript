@@ -36,6 +36,8 @@
     },
     "task": [
         {
+            "name": "点击存储——游戏",
+            "entry": "点击存储"
             "name": "普通任务",
             "entry": "MyTask1"
         },

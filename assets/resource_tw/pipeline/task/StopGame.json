@@ -1,0 +1,7 @@
+{
+  "stopGame": {
+    "doc": "关闭游戏",
+    "action": "StopApp",
+    "package": "tw.txwy.and.snqx"
+  }
+}

@@ -1,0 +1,130 @@
+{
+    "CheckPostLoginState": {
+        "doc": "检查登陆后可能存在的弹窗或是否已经处于主页面",
+        "pre_wait_freezes": 4000,
+        "next": [
+            "CheckSignInPopup",
+            "CheckLogisticsPopup",
+            "CheckAchievementPopup",
+            "CheckMainPageLoaded"
+        ]
+    },
+    "CheckSignInPopup": {
+        "doc": "检查签到成功弹窗",
+        "recognition": "OCR",
+        "expected": "簽到成功",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "next": [
+            "DismissSignInPopup"
+        ]
+    },
+    "DismissSignInPopup": {
+        "doc": "点击关闭签到成功弹窗(TODO: 需要识别特征和文字)",
+        "action": "Click",
+        "target": [
+            91,
+            91,
+            102,
+            48
+        ],
+        "next": [
+            "CheckPostLoginState"
+        ]
+    },
+    "CheckLogisticsPopup": {
+        "doc": "检查后勤归来弹窗",
+        "recognition": "OCR",
+        "expected": "全體出征",
+        "roi": [
+            1077,
+            658,
+            105,
+            31
+        ],
+        "next": [
+            "ClickLogisticsButton"
+        ]
+    },
+    "ClickLogisticsButton": {
+        "doc": "点击全体出征按钮",
+        "action": "Click",
+        "target": [
+            1076,
+            657,
+            103,
+            29
+        ],
+        "post_wait_freezes": 2000,
+        "next": [
+            "DoubleCheck"
+        ]
+    },
+    "DoubleCheck": {
+        "doc": "全体出征的二次确认按钮",
+        "recognition": "OCR",
+        "expected": "是否使用相同的配置再次出征",
+        "roi": [
+            424,
+            284,
+            429,
+            56
+        ],
+        "next": [
+            "ClickDoubleCheck"
+        ]
+    },
+    "ClickDoubleCheck": {
+        "doc": "点击后勤二次确认弹窗的确定按钮",
+        "action": "Click",
+        "target": [
+            664,
+            466,
+            152,
+            56
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "CheckPostLoginState"
+        ]
+    },
+    "CheckAchievementPopup": {
+        "doc": "检查成就获得弹窗 (TODO: 需要识别特征和文字)",
+        "recognition": "OCR",
+        "expected": "成就",
+        "roi": [
+            293,
+            212,
+            86,
+            43
+        ],
+        "next": [
+            "DismissAchievementPopup"
+        ]
+    },
+    "DismissAchievementPopup": {
+        "doc": "点击关闭成就弹窗(TODO: 需要识别特征和文字)",
+        "action": "Click",
+        "target": true,
+        "next": [
+            "CheckPostLoginState"
+        ]
+    },
+    "CheckMainPageLoaded": {
+        "doc": "确认到达主页面",
+        "pre_wait_freezes": 1000,
+        "recognition": "OCR",
+        "expected": "成",
+        "roi": [
+            1077,
+            392,
+            106,
+            54
+        ],
+        "next": []
+    }
+}

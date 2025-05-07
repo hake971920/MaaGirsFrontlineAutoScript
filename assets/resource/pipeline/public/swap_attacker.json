@@ -1,0 +1,56 @@
+{
+    "SwapAttacker": {
+        "recognition": "TemplateMatch",
+        "template": "team_1.png",
+        "action": "Click",
+        "target": true,
+        "post_wait_freezes": 500,
+        "next": [
+            "ChangeForce"
+        ]
+    },
+    "ChangeForce": {
+        "recognition": "TemplateMatch",
+        "template": "队伍编成.png",
+        "action": "Click",
+        "target": true,
+        "post_wait_freezes": 3000,
+        "next": [
+            "ChooseMember"
+        ]
+    },
+    "ChooseMember": {
+        "action": "Click",
+        "roi": [
+            204,
+            272,
+            76,
+            76
+        ],
+        "next": [
+            "ClickAlterby"
+        ]
+    },
+    "ClickAlterby": {
+        "recognition": "TemplateMatch",
+        "template": "alteby.png",
+        "action": "Click",
+        "target": true,
+        "post_wait_freezes": 500,
+        "next": [
+            "ClickFavorite"
+        ]
+    },
+    "ClickFavorite": {
+        "recognition": "TemplateMatch",
+        "template": "favorite.png",
+        "action": "Click",
+        "target": true,
+        "post_wait_freezes": 500,
+        "next": [
+            "ClickConfirm"
+        ]
+    },
+    "ClickConfirm": {},
+    "UninstallForce": {}
+}

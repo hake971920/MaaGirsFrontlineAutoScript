@@ -1,0 +1,74 @@
+{
+    "LaunchApp": {
+        "doc": "启动app",
+        "action": "StartApp",
+        "package": "tw.txwy.and.snqx",
+        "next": [
+            "InitialCheckAfterLaunch"
+        ]
+    },
+    "InitialCheckAfterLaunch": {
+        "doc": "启动后初步检查（资源更新或Logo）",
+        "pre_wait_freezes": 3000,
+        "next": [
+            "CheckResourceUpdatePopup",
+            "WaitUntilLogoRecognized"
+        ]
+    },
+    "CheckResourceUpdatePopup": {
+        "doc": "检查资源更新弹窗",
+        "recognition": "OCR",
+        "expected": "更新",
+        "roi": [
+            659,
+            156,
+            70,
+            58
+        ],
+        "next": [
+            "ClickResourceUpdateButton"
+        ]
+    },
+    "ClickResourceUpdateButton": {
+        "doc": "点击资源更新确认按钮",
+        "action": "Click",
+        "target": [
+            754,
+            471,
+            129,
+            53
+        ],
+        "post_wait_freezes": 20000,
+        "next": [
+            "InitialCheckAfterLaunch"
+        ]
+    },
+    "WaitUntilLogoRecognized": {
+        "timeout": 35000,
+        "recognition": "OCR",
+        "expected": "少女前線",
+        "doc": "等待并识别Logo文字",
+        "roi": [
+            37,
+            184,
+            108,
+            26
+        ],
+        "next": [
+            "ClickMiddle"
+        ]
+    },
+    "ClickMiddle": {
+        "action": "Click",
+        "doc": "点击开始游戏",
+        "target": [
+            545,
+            588,
+            186,
+            77
+        ],
+        "next": [
+            "CheckPostLoginState"
+        ]
+    }
+}

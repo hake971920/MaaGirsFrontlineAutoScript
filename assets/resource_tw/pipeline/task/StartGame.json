@@ -1,0 +1,8 @@
+{
+  "StartApp": {
+    "package": "com.txwy.passport.xdsdk.permission.PermissionsActivityLauncher"
+  },
+  "openGFGameApp": {
+    "package": "com.txwy.passport.xdsdk.permission.PermissionsActivityLauncher"
+  }
+}
