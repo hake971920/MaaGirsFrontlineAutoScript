@@ -51,6 +51,30 @@
             "ClickConfirm"
         ]
     },
-    "ClickConfirm": {},
-    "UninstallForce": {}
+    "ClickConfirm": {
+        "recognition": "TemplateMatch",
+        "template": "alter确认.png",
+        "action": "Click",
+        "target": true,
+        "post_wait_freezes": 500,
+        "next": [
+            "UninstallForce"
+        ]
+    },
+    "UninstallForce": {
+        "action": "Click",
+        "target": [
+            66,
+            633,
+            46,
+            39
+        ],
+        "post_wait_freezes": 200,
+        "next": [
+            "ChangeByteamFlag"
+        ]
+    },
+    "ChangeByteamFlag": {
+        "SelectForce": ""
+    }
 }
